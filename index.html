@@ -35,17 +35,17 @@
         }
         .tier-items {
             display: flex;
-            gap: 20px;
+            gap: 10px;
             flex-wrap: wrap;
         }
         .tier-item {
             text-align: center;
         }
         .tier-item img {
-            width: 96px;
-            height: 96px;
+            width: 64px;
+            height: 64px;
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 2px solid #111;
         }
         .tier-item img:hover {
@@ -54,18 +54,23 @@
         .description-box {
             position: fixed;
             bottom: 20px;
+            text-align: center;
             left: 25%;
             width: 50%;
-            padding: 30px;
+            opacity: 0; 
+            overflow: hidden;
             background-color: #222;
             color: white;
+            padding: 10px;
             border-radius: 10px;
             display: none;
             overflow-y: auto;
-            word-wrap: break-word; /* Prevent text overflow */
+            word-wrap: break-word;
+            transition: opacity 0.3s ease;
         }
         .description-box.visible {
             display: block;
+            opacity: 1;
         }
         .close-btn {
             position: absolute;
@@ -90,87 +95,11 @@
     <p align=center>last updated: 2024-09-28</p>
 <p>This is a resource designed to help newer players understand the value of their Pokemon. This will allow them to make more educated offers which increases their chances of trading what they are looking for and decreases their chances of being ripped off. Do note that rarity and value are subjective, so this list is merely intended to serve as a rough guideline for traders.</p><br>
 
-    <div class="tier-container">
-        <!-- Tier 1 -->
-        <div class="tier">
-            <h2>Legendary Rare</h2>
-            <div class="tier-items">
-                <div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm1.s.icon.png alt=Image 1 onclick=showDescription('test')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm1.cJAN_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm1.fFALL_2019.s.icon.png alt=Image 1 onclick=showDescription('ffff')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm1.cSPRING_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('ggg')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm3.fCOPY_2019.icon.png alt=Image 1 onclick=showDescription('rerere')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm4.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm4.fFALL_2019.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm4.cJAN_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm4.cSPRING_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm6.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm6.fCOPY_2019.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.cJAN_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.cSUMMER_2018.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.cSPRING_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.fFALL_2019.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm8.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://cdn08.net/games/resize?src=%2Fpokemongo%2Fdata%2Fimg9%2Fimg9007_5.png&w=120 alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm10.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm12.cFASHION_2021_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm13.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm16.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm19.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm19.fALOLA.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm20.cJAN_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm21.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm23.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm25.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm25.fGOTOUR_2024_B_02.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm25.fSUMMER_2023_E.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-            </div>
-        </div>
-
-        <!-- Tier 2 -->
-        <div class="tier">
-            <h2>A-Tier</h2>
-            <div class="tier-items">
-                <div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm1.s.icon.png alt=Image 1 onclick=showDescription('test')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm1.cJAN_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm1.fFALL_2019.s.icon.png alt=Image 1 onclick=showDescription('ffff')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm1.cSPRING_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('ggg')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm3.fCOPY_2019.icon.png alt=Image 1 onclick=showDescription('rerere')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm4.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm4.fFALL_2019.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm4.cJAN_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm4.cSPRING_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm6.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm6.fCOPY_2019.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.cJAN_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.cSUMMER_2018.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.cSPRING_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm7.fFALL_2019.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm8.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://cdn08.net/games/resize?src=%2Fpokemongo%2Fdata%2Fimg9%2Fimg9007_5.png&w=120 alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm10.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm12.cFASHION_2021_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm13.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm16.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm19.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm19.fALOLA.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm20.cJAN_2020_NOEVOLVE.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm21.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm23.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm25.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm25.fGOTOUR_2024_B_02.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-<div class=tier-item><img src=https://raw.githubusercontent.com/PokeMiners/pogo_assets/master/Images/Pokemon/Addressable%20Assets/pm25.fSUMMER_2023_E.s.icon.png alt=Image 1 onclick=showDescription('')></div>
-            </div>
-        </div>
-
-        <!-- Repeat for other tiers like B-Tier, C-Tier, etc. -->
-
+    <div id="html-content">
     </div>
 
     <div class="description-box" id="descriptionBox">
-        <button class="close-btn" onclick="closeDescription()">×</button>
+        <button class="close-btn" onclick=closeDescription()>×</button>
         <p id="descriptionText"></p>
     </div>
 
@@ -192,6 +121,39 @@
             var descriptionBox = document.getElementById('descriptionBox');
             descriptionBox.classList.remove('visible');
         }
+
+        const apiKey = 'AIzaSyAVF_cJZiGHJm9ImFnK2Ed2S_2Lm_k86Q8';  // Replace with your API Key
+        const spreadsheetId = '1dHOdFy9U9NARS45Cc14K5v_JAcVzCYa6fcYVtXlk7_g'; // Replace with your Spreadsheet ID
+        const range = 'Sheet1!F2:F9999';  // Define the range where your HTML is located
+
+        // Fetch HTML data from Google Sheets
+        async function fetchHtmlFromSheet() {
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.values && data.values.length > 0) {
+                    const htmlContent = data.values.map(row => row[0]).join('');  // Join all rows into a single string
+                    insertHtml(htmlContent);
+                } else {
+                    console.error('No data found.');
+                }
+            } catch (error) {
+                console.error('Error fetching data from Google Sheets:', error);
+            }
+        }
+
+        // Insert HTML content into the div
+        function insertHtml(htmlContent) {
+            const contentDiv = document.getElementById('html-content');
+            contentDiv.innerHTML = htmlContent;  // Insert HTML from the spreadsheet
+        }
+
+        // Fetch and display the HTML when the page loads
+        fetchHtmlFromSheet();
+
     </script>
 </body>
 </html>
