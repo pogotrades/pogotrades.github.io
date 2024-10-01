@@ -25,7 +25,7 @@
             color: white;
         }
         .tier {
-            background-color: #111;
+            background-color: #111111;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -35,22 +35,66 @@
         }
         .tier-items {
             display: flex;
-            gap: 10px;
+            gap: 0px;
             flex-wrap: wrap;
         }
-        .tier-item {
-            text-align: center;
-        }
-        .tier-item img {
-            width: 54px;
-            height: 54px;
-            object-fit: contain;
-            border-radius: 10px;
-            border: 2px solid #111;
-        }
-        .tier-item img:hover {
-            border: 2px solid #BBB;
-        }
+.tier-item {
+    text-align: center;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 0px;
+}
+.tier-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: radial-gradient(circle, #11111100 50%, #111111 75%);
+    pointer-events: none;
+    border-radius: 0px;
+}
+.tier-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 0px;
+    position: absolute; /* For absolute positioning */
+    top: 0;
+    left: 0;
+}
+.background {
+    z-index: 0;
+    opacity: 0.75; /* Optional: to give it transparency */
+}
+.tier-item .background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-52%, -30%);
+    width: 170%;
+    height: 170%;
+    object-fit: cover;
+    z-index: 0;
+    border-radius: 10px;
+    border: 2px solid #111;
+}
+.top {
+    z-index: 1; /* Make sure the overlay image appears on top */
+}
+.tier-item .top {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    z-index: 1;
+}
         .description-box {
             position: fixed;
             bottom: 20px;
@@ -92,6 +136,7 @@
 </head>
 <body>
     <h1>r/PokemonGoTrade Rarity Tier List</h1>
+
     <div id="html-content">
     </div>
 
@@ -119,20 +164,15 @@
             descriptionBox.classList.remove('visible');
         }
 
-        const apiKey = 'AIzaSyAVF_cJZiGHJm9ImFnK2Ed2S_2Lm_k86Q8';  // Replace with your API Key
-        const spreadsheetId = '1dHOdFy9U9NARS45Cc14K5v_JAcVzCYa6fcYVtXlk7_g'; // Replace with your Spreadsheet ID
-        const range = 'Sheet1!F1:F9999';  // Define the range where your HTML is located
-
-        // Fetch HTML data from Google Sheets
         async function fetchHtmlFromSheet() {
-            const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/1dHOdFy9U9NARS45Cc14K5v_JAcVzCYa6fcYVtXlk7_g/values/Sheet1!F1:F9999?key=AIzaSyAVF_cJZiGHJm9ImFnK2Ed2S_2Lm_k86Q8`;
 
             try {
                 const response = await fetch(url);
                 const data = await response.json();
 
                 if (data.values && data.values.length > 0) {
-                    const htmlContent = data.values.map(row => row[0]).join('');  // Join all rows into a single string
+                    const htmlContent = data.values.map(row => row[0]).join('');
                     insertHtml(htmlContent);
                 } else {
                     console.error('No data found.');
