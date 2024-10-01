@@ -27,7 +27,7 @@
         .tier {
             background-color: #111111;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .tier h2 {
@@ -35,27 +35,15 @@
         }
         .tier-items {
             display: flex;
-            gap: 0px;
+            gap: 2px;
             flex-wrap: wrap;
         }
 .tier-item {
     text-align: center;
     position: relative;
-    width: 82px;
-    height: 82px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
-    border-radius: 0px;
-}
-.tier-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: radial-gradient(circle, #11111100 50%, #111111 75%);
-    pointer-events: none;
     border-radius: 0px;
 }
 .tier-item img {
@@ -63,13 +51,13 @@
     height: 70px;
     object-fit: contain;
     border-radius: 0px;
-    position: absolute; /* For absolute positioning */
+    position: absolute;
     top: 0;
     left: 0;
 }
 .background {
     z-index: 0;
-    opacity: 0.75; /* Optional: to give it transparency */
+    opacity: 0.75;
 }
 .tier-item .background {
     position: absolute;
@@ -84,7 +72,7 @@
     border: 2px solid #111;
 }
 .top {
-    z-index: 1; /* Make sure the overlay image appears on top */
+    z-index: 1;
 }
 .tier-item .top {
     position: absolute;
@@ -147,14 +135,11 @@
 
     <script>
         function showDescription(description) {
-            // Get the description box and text elements
             var descriptionBox = document.getElementById('descriptionBox');
             var descriptionText = document.getElementById('descriptionText');
             
-            // Update the text in the description box
             descriptionText.innerText = description;
             
-            // Show the description box
             descriptionBox.classList.add('visible');
         }
 
@@ -182,13 +167,11 @@
             }
         }
 
-        // Insert HTML content into the div
         function insertHtml(htmlContent) {
             const contentDiv = document.getElementById('html-content');
-            contentDiv.innerHTML = htmlContent;  // Insert HTML from the spreadsheet
+            contentDiv.innerHTML = htmlContent;
         }
 
-        // Fetch and display the HTML when the page loads
         fetchHtmlFromSheet();
 
     </script>
