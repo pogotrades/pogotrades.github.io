@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>r/PokemonGoTrade Value Reference</title>
+  <style>
+    body { color: white; font-family: Arial, sans-serif; margin: 2rem; background: black; }
+    .tier { color: white; background: #111111; margin-bottom: 1rem; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden; }
+    .tier-header { font-size: 1.5em; padding: 1rem; cursor: pointer; display: flex; justify-content: flex-start; align-items: center; border-bottom: 1px solid #222; }
+    .tier-desc-inline { text-align: left; font-size: 0.6em; color: #777; padding: 0 0 0 1rem; }
+    .tier-content { overflow: hidden; padding: 1rem; display: flex; flex-wrap: wrap; gap: 2px; transition: max-height 0.5s ease; }
+    .pokemon { position: relative; display: inline-block; width: 80px; height: 80px; cursor: pointer; overflow: hidden; }
+    .pokemon img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transition: transform 0.3s ease, opacity 0.3s ease; }
+    #searchBar { width: 100%; color: white; padding: 0.5rem; margin-bottom: 1rem; font-size: 1rem; background-color: #111111}
+    #modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; }
+    #modal-content { color: white; background: #111111; padding: 1.5rem; border-radius: 0.5rem; width: 80%; }
+    #modal-close { float: right; cursor: pointer; }
+  </style>
+</head>
+<body>  
+  <h1>r/PokemonGoTrade Value Reference</h1>
+  <input type="text" id="searchBar" placeholder="Search Pokémon by name...">
+  <div id="tiers"></div>
+
+  <div id="modal">
+    <div id="modal-content">
+      <span id="modal-close">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-description"></p>
+    </div>
+  </div>
+
+  <script>
+    let allData = [];
+
+    async function loadJSON() {
+      try {
+        const response = await fetch('tierlist.json');
+        if (!response.ok) throw new Error('tierlist.json not found');
+        const data = await response.json();
+        allData = data;
+        return data;
+      } catch (err) {
+        console.error(err);
+        document.getElementById('tiers').innerHTML = '<p style="color:red;">Unable to load tierlist.json</p>';
+        return [];
+      }
+    }
+
+    const tiersContainer = document.getElementById('tiers');
+
+    function renderTiers(data) {
+      tiersContainer.innerHTML = '';
+      data.forEach(tier => {
+        const tierDiv = document.createElement('div');
+        tierDiv.className = 'tier';
+
+        const header = document.createElement('div');
+        header.className = 'tier-header';
+
+        const titleSpan = document.createElement('span');
+        titleSpan.textContent = tier.tier;
+
+        const descSpan = document.createElement('span');
+        descSpan.className = 'tier-desc-inline';
+        descSpan.textContent = tier.desc || '';
+
+        header.appendChild(titleSpan);
+        header.appendChild(descSpan);
+
+        const content = document.createElement('div');
+        content.className = 'tier-content';
+
+        tier.pokemons.forEach(p => {
+          const pDiv = document.createElement('div');
+          pDiv.className = 'pokemon';
+          pDiv.dataset.desc = p.desc;
+          pDiv.dataset.name = p.name;
+
+          const imagesArray = Array.isArray(p.images) ? p.images : [p.img];
+          pDiv.style.position = 'relative';
+          pDiv.style.overflow = 'hidden';
+
+          imagesArray.forEach((imgSrc, index) => {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = p.name;
+            img.style.position = 'absolute';
+            img.style.top = '0';
+            img.style.left = '0';
+            img.style.width = '100%';
+            img.style.height = '100%';
+
+            if (imagesArray.length > 2 && index === 0) {
+              img.style.transform = 'scale(1.6) translateY(20%)';
+              img.style.opacity = '0.6';
+              img.style.objectFit = 'cover';
+              img.style.zIndex = '0';
+            } else {
+              img.style.transform = 'scale(0.8)';
+              img.style.objectFit = 'contain';
+            }
+
+            pDiv.appendChild(img);
+          });
+
+          content.appendChild(pDiv);
+        });
+
+        header.addEventListener('click', () => {
+          content.classList.toggle('show');
+        });
+
+        tierDiv.appendChild(header);
+        tierDiv.appendChild(content);
+        tiersContainer.appendChild(tierDiv);
+      });
+    }
+
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-description');
+    const modalClose = document.getElementById('modal-close');
+
+    document.addEventListener('click', e => {
+      if (e.target.closest('.pokemon')) {
+        const p = e.target.closest('.pokemon');
+        modalTitle.textContent = p.dataset.name;
+        modalDesc.textContent = p.dataset.desc;
+        modal.style.display = 'flex';
+      }
+    });
+
+    modalClose.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+
+    const searchBar = document.getElementById('searchBar');
+    searchBar.addEventListener('input', () => {
+      const query = searchBar.value.toLowerCase();
+      const filteredData = allData.map(tier => ({
+        tier: tier.tier,
+        pokemons: tier.pokemons.filter(p => 
+          p.name.toLowerCase().includes(query) || 
+          (p.aliases && p.aliases.some(a => a.toLowerCase().includes(query)))
+        )
+      })).filter(tier => tier.pokemons.length > 0);
+      renderTiers(filteredData);
+    });
+
+    loadJSON().then(renderTiers);
+  </script>
+</body>
+</html>
