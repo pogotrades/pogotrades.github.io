@@ -6,13 +6,13 @@
   <title>r/PokemonGoTrade Value Reference</title>
   <style>
     body { color: white; font-family: Arial, sans-serif; margin: 2rem; background: black; }
-    .tier { color: white; background: #111111; margin-bottom: 1rem; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden; }
+    .tier { max-width: 100%; color: white; background: #111111; margin-bottom: 1rem; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden; }
     .tier-header { font-size: 1.5em; padding: 1rem; cursor: pointer; display: flex; justify-content: flex-start; align-items: center; border-bottom: 1px solid #222; }
     .tier-desc-inline { text-align: left; font-size: 0.6em; color: #777; padding: 0 0 0 1rem; }
     .tier-content { overflow: hidden; padding: 1rem; display: flex; flex-wrap: wrap; gap: 2px; transition: max-height 0.5s ease; }
-    .pokemon { position: relative; display: inline-block; width: 80px; height: 80px; cursor: pointer; overflow: hidden; }
+    .pokemon { position: relative; display: inline-block; width: 80px; height: 80px; max-width: 19%; cursor: pointer; overflow: hidden; }
     .pokemon img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; transition: transform 0.3s ease, opacity 0.3s ease; }
-    #searchBar { width: 100%; color: white; padding: 0.5rem; margin-bottom: 1rem; font-size: 1rem; background-color: #111111}
+    #searchBar { width: 94%; color: white; padding: 0.5rem; margin-bottom: 1rem; font-size: 1rem; background-color: #111111}
     #modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; }
     #modal-content { color: white; background: #111111; padding: 1.5rem; border-radius: 0.5rem; width: 80%; }
     #modal-close { float: right; cursor: pointer; }
@@ -20,6 +20,24 @@
 </head>
 <body>  
   <h1>r/PokemonGoTrade Value Reference</h1>
+  <p>Last updated 2025-12-18</p>
+  <div class="tier">
+    <div class="tier-header">
+      <span>Introduction</span>
+      <span class="tier-desc-inline">Click/tap to collapse</span>
+    </div>
+    <div class="tier-content">
+      <p>Hello there. If you are here to learn more about the trade value of Pokemon you have or are trying to get, you've come to 
+        the right place. There are a few things you should know before you look at the tier list though.<br><br> - First, and most 
+        importantly, value is 
+        subjective. We all have our opinions, and this tier list is just meant to reflect the general consensus among experienced 
+        traders. If you feel differently, you do not have to follow my advice!<br><br> - If something isn't on here, it's either 
+        because the trade value is negligible, or it is too new and hasn't been added yet. I intend to make monthly updates but 
+        they may be less frequent if I am busy.<br><br> - By the way, this page is designed to be viewed on phones, so it might 
+        look weird if you are using a different device.
+      </p>
+    </div>
+  </div>
   <input type="text" id="searchBar" placeholder="Search Pokémon by name...">
   <div id="tiers"></div>
 
